@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LoRa Enabled Environmental Monitoring System | Sujal Chavan</title>
+<style>
+:root{--bg:#0e1419;--surface:#121a20;--border:#26313a;--text:#edf2f6;--muted:#8c9baa;--orange:#ff9f1c;--teal:#37e0d0;--dim:#60717e}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{min-height:100vh;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;background-image:linear-gradient(rgba(24,35,42,.62) 1px,transparent 1px),linear-gradient(90deg,rgba(24,35,42,.62) 1px,transparent 1px);background-size:49px 49px}
+.top{height:58px;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 7vw;background:rgba(14,20,25,.97);justify-content:space-between;position:sticky;top:0;z-index:10}
+.logo{font-family:'JetBrains Mono','Courier New',monospace;font-weight:700;font-size:18px}.logo span{color:var(--orange)}
+.back{color:#9aa8b4;text-decoration:none;font:12px 'JetBrains Mono','Courier New',monospace;border:1px solid var(--border);padding:9px 14px;border-radius:3px}
+.back:hover{color:white;border-color:#52616d}
+main{width:min(1120px,86%);margin:0 auto;padding:88px 0 110px}
+.number{font:12px 'JetBrains Mono','Courier New',monospace;color:#bd7500;margin-bottom:12px}
+h1{font-size:clamp(40px,6vw,70px);line-height:1.03;letter-spacing:-2.5px;max-width:1000px}
+.intro{margin-top:22px;color:var(--muted);font-size:18px;line-height:1.75;max-width:930px}
+.section{margin-top:52px}.section h2{font-size:25px;margin-bottom:18px}
+.section p,.section li{color:#92a0ad;font-size:14px;line-height:1.9}
+.section p+p{margin-top:15px}.section ul{padding-left:22px}.section li+li{margin-top:5px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.box{background:rgba(18,26,32,.92);border:1px solid var(--border);padding:28px}
+.box h3{font:12px 'JetBrains Mono','Courier New',monospace;margin-bottom:12px;color:#dbe3e9;letter-spacing:.4px}
+.tech{color:var(--teal);font:12px 'JetBrains Mono','Courier New',monospace;line-height:1.9}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.gallery figure{margin:0;border:1px solid var(--border);background:#121a20;overflow:hidden}
+.gallery img{display:block;width:100%;height:390px;object-fit:cover}
+.gallery figcaption{padding:12px 14px;color:#71818e;font:10px 'JetBrains Mono','Courier New',monospace;line-height:1.5}
+.note{margin-top:12px;color:#596975;font-size:11px;line-height:1.6}
+.empty-gallery{height:230px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:#4b5b66;font:11px 'JetBrains Mono','Courier New',monospace;text-align:center;padding:20px}
+@media(max-width:700px){.info-grid,.gallery{grid-template-columns:1fr}.gallery img{height:310px}main{width:88%;padding-top:65px}h1{font-size:43px}}
+</style>
+</head>
+<body>
+<header class="top">
+<a class="logo" href="../index.html">SSC<span>_</span></a>
+<a class="back" href="../index.html#projects">← back to projects</a>
+</header>
+<main>
+<div class="number">09 / project</div>
+<h1>LoRa Enabled Environmental Monitoring System</h1>
+<p class="intro">An ongoing embedded/IoT project focused on collecting environmental measurements and transmitting sensor data over a long-range LoRa communication link.</p>
+
+<section class="section">
+<h2>Project overview</h2>
+<p>This project is currently under development and is therefore intentionally marked as ongoing rather than presented as a finished system.</p><p>The core idea is to create a distributed environment-monitoring platform in which sensor measurements are collected by an embedded node and transmitted over LoRa. The long-range radio link is intended to provide communication beyond the short range of conventional local wireless connections.</p><p>Because the system is still being developed, the final sensor set, enclosure, communication topology and completed deployment are not represented as finished features in this portfolio.</p>
+</section>
+
+<section class="section">
+<h2>System architecture &amp; technical focus</h2>
+<div class="info-grid">
+<div class="box"><h3>CURRENT STAGE</h3><p>Ongoing development and hardware/software integration.</p></div>
+<div class="box"><h3>SENSING</h3><p>Environmental sensors are being integrated for field measurements.</p></div>
+<div class="box"><h3>COMMUNICATION</h3><p>LoRa is being used as the long-range communication layer.</p></div>
+<div class="box"><h3>SYSTEM GOAL</h3><p>Collect, transmit and eventually present environmental measurements from a remote embedded node.</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2>Work performed</h2>
+<ul><li>Developing the embedded monitoring node and its sensor interfaces.</li>
+<li>Working on sensor acquisition and reliable reading of environmental parameters.</li>
+<li>Integrating the LoRa communication layer for long-range data transmission.</li>
+<li>Testing the communication path and hardware integration during development.</li>
+<li>Iterating on the system architecture as sensor and communication components are validated.</li>
+<li>Planning the final monitoring/data presentation layer as the hardware and radio link are stabilised.</li></ul>
+</section>
+
+<section class="section">
+<h2>Technology stack</h2>
+<div class="box"><div class="tech">LORA · EMBEDDED SYSTEMS · ENVIRONMENTAL SENSORS · IOT · LONG-RANGE WIRELESS</div></div>
+</section>
+
+<section class="section">
+<h2>Project media</h2>
+<div class="gallery">
+<figure>
+<img src="../images/8051-04-robot-platform.jpg" alt="LoRa-enabled environment monitoring hardware" loading="lazy">
+<figcaption>Representative hardware platform used in ongoing LoRa environment monitoring development.</figcaption>
+</figure>
+</div>
+<div class='note'>The image shows the current hardware platform used in the field monitoring prototype.</div>
+</section>
+</main>
+</body>
+</html>

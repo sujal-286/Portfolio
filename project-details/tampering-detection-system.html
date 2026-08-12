@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-Sensor Tampering Detection System | Sujal Chavan</title>
+<style>
+:root{--bg:#0e1419;--surface:#121a20;--border:#26313a;--text:#edf2f6;--muted:#8c9baa;--orange:#ff9f1c;--teal:#37e0d0;--dim:#60717e}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{min-height:100vh;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;background-image:linear-gradient(rgba(24,35,42,.62) 1px,transparent 1px),linear-gradient(90deg,rgba(24,35,42,.62) 1px,transparent 1px);background-size:49px 49px}
+.top{height:58px;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 7vw;background:rgba(14,20,25,.97);justify-content:space-between;position:sticky;top:0;z-index:10}
+.logo{font-family:'JetBrains Mono','Courier New',monospace;font-weight:700;font-size:18px}.logo span{color:var(--orange)}
+.back{color:#9aa8b4;text-decoration:none;font:12px 'JetBrains Mono','Courier New',monospace;border:1px solid var(--border);padding:9px 14px;border-radius:3px}
+.back:hover{color:white;border-color:#52616d}
+main{width:min(1120px,86%);margin:0 auto;padding:88px 0 110px}
+.number{font:12px 'JetBrains Mono','Courier New',monospace;color:#bd7500;margin-bottom:12px}
+h1{font-size:clamp(40px,6vw,70px);line-height:1.03;letter-spacing:-2.5px;max-width:1000px}
+.intro{margin-top:22px;color:var(--muted);font-size:18px;line-height:1.75;max-width:930px}
+.section{margin-top:52px}.section h2{font-size:25px;margin-bottom:18px}
+.section p,.section li{color:#92a0ad;font-size:14px;line-height:1.9}
+.section p+p{margin-top:15px}.section ul{padding-left:22px}.section li+li{margin-top:5px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.box{background:rgba(18,26,32,.92);border:1px solid var(--border);padding:28px}
+.box h3{font:12px 'JetBrains Mono','Courier New',monospace;margin-bottom:12px;color:#dbe3e9;letter-spacing:.4px}
+.tech{color:var(--teal);font:12px 'JetBrains Mono','Courier New',monospace;line-height:1.9}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.gallery figure{margin:0;border:1px solid var(--border);background:#121a20;overflow:hidden}
+.gallery img{display:block;width:100%;height:390px;object-fit:cover}
+.gallery figcaption{padding:12px 14px;color:#71818e;font:10px 'JetBrains Mono','Courier New',monospace;line-height:1.5}
+.note{margin-top:12px;color:#596975;font-size:11px;line-height:1.6}
+.empty-gallery{height:230px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:#4b5b66;font:11px 'JetBrains Mono','Courier New',monospace;text-align:center;padding:20px}
+@media(max-width:700px){.info-grid,.gallery{grid-template-columns:1fr}.gallery img{height:310px}main{width:88%;padding-top:65px}h1{font-size:43px}}
+</style>
+</head>
+<body>
+<header class="top">
+<a class="logo" href="../index.html">SSC<span>_</span></a>
+<a class="back" href="../index.html#projects">← back to projects</a>
+</header>
+<main>
+<div class="number">04 / project</div>
+<h1>Multi-Sensor Tampering Detection System</h1>
+<p class="intro">An ESP32-based security and tamper-detection system combining motion, tilt, obstruction and magnetic sensing to detect physical interference and trigger alerts.</p>
+
+<section class="section">
+<h2>Project overview</h2>
+<p>The system was designed around the idea that different types of tampering require different sensing mechanisms. Instead of depending on one sensor, the platform combines multiple sensors and uses the ESP32 as the central controller.</p><p>The project integrates an MPU6050 for motion/tilt information, an LDR for detecting obstruction or covering of a monitored display/area, and a Hall-effect sensor for magnetic-state detection. A buzzer provides a local alert, while the broader system architecture supports monitoring and event reporting.</p><p>The project therefore demonstrates practical multi-sensor integration: sensor inputs must be read reliably, interpreted by the controller and converted into useful security events.</p>
+</section>
+
+<section class="section">
+<h2>System architecture &amp; technical focus</h2>
+<div class="info-grid">
+<div class="box"><h3>MOTION & TILT</h3><p>MPU6050 used to detect movement and changes in orientation that can indicate physical disturbance.</p></div>
+<div class="box"><h3>OBSTRUCTION DETECTION</h3><p>LDR used to detect changes in light conditions associated with covering or obstructing the monitored area.</p></div>
+<div class="box"><h3>MAGNETIC DETECTION</h3><p>Hall-effect sensor used for magnetic-state/event detection as another independent tamper signal.</p></div>
+<div class="box"><h3>ALERTING & MONITORING</h3><p>ESP32 processes sensor events and can trigger local buzzer alerts and monitoring notifications.</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2>Work performed</h2>
+<ul><li>Designed the system around an ESP32 embedded controller.</li>
+<li>Integrated the MPU6050 for motion and tilt detection.</li>
+<li>Integrated an LDR to detect display/area obstruction or covering.</li>
+<li>Integrated a Hall-effect sensor for magnetic event detection.</li>
+<li>Read and processed multiple sensor inputs through the controller.</li>
+<li>Implemented local buzzer alerting for detected tamper conditions.</li>
+<li>Worked on the communication/monitoring side for reporting events to a dashboard or server.</li>
+<li>Tested the system using different sensor events instead of relying on a single trigger.</li>
+<li>Focused on combining complementary sensor inputs into a practical tamper-detection architecture.</li></ul>
+</section>
+
+<section class="section">
+<h2>Technology stack</h2>
+<div class="box"><div class="tech">ESP32 · MPU6050 · LDR · HALL-EFFECT SENSOR · BUZZER · I2C · SENSOR FUSION · MQTT/WEB MONITORING</div></div>
+</section>
+
+<section class="section">
+<h2>Project media</h2>
+<div class="gallery"><figure><img src="../images/tampering-01.jpg" alt="Monitoring dashboard." loading="lazy"><figcaption>Monitoring dashboard.</figcaption></figure>
+<figure><img src="../images/tampering-02.jpg" alt="System prototype during testing." loading="lazy"><figcaption>System prototype during testing.</figcaption></figure>
+<figure><img src="../images/tampering-03.jpg" alt="Controller and sensor prototype." loading="lazy"><figcaption>Controller and sensor prototype.</figcaption></figure></div>
+
+</section>
+</main>
+</body>
+</html>

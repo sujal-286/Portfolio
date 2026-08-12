@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sujal Sanjay Chavan | Robotics & Embedded Systems</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root{
+    --bg:#0e1419;
+    --surface:#121a20;
+    --surface-2:#182129;
+    --border:#26313a;
+    --grid:#18232a;
+    --text:#edf2f6;
+    --muted:#8c9baa;
+    --dim:#627180;
+    --orange:#ff9f1c;
+    --teal:#37e0d0;
+    --green:#42e6c4;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+/* subtle engineering/grid background */
+.page{
+    min-height:100vh;
+    position:relative;
+    padding:115px max(7vw,40px) 90px;
+    border-bottom:1px solid var(--border);
+    background-color:var(--bg);
+    background-image:
+        linear-gradient(rgba(24,35,42,.62) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(24,35,42,.62) 1px,transparent 1px);
+    background-size:49px 49px;
+}
+
+.page-inner{
+    width:min(1320px,100%);
+    margin:auto;
+}
+
+/* ================= NAV ================= */
+
+.nav{
+    height:58px;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:100;
+    background:rgba(14,20,25,.96);
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+}
+
+.nav-inner{
+    width:min(1320px,86%);
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-family:'JetBrains Mono',monospace;
+    font-weight:700;
+    font-size:18px;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:var(--orange);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:30px;
+    list-style:none;
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+}
+
+.nav-links a{
+    color:var(--muted);
+    transition:.2s ease;
+}
+
+.nav-links a:hover{
+    color:var(--text);
+}
+
+.nav-links .num{
+    color:#bd7500;
+    margin-right:5px;
+}
+
+.resume-btn{
+    border:1px solid var(--border);
+    border-radius:4px;
+    padding:9px 16px;
+    color:#cdd5dc;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+}
+
+.resume-btn:hover{
+    border-color:#5b6975;
+    color:white;
+}
+
+/* ================= HOME ================= */
+
+.home{
+    min-height:100vh;
+    padding-top:58px;
+    display:flex;
+    align-items:center;
+}
+
+.home .page-inner{
+    padding-top:20px;
+}
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:9px 15px;
+    border:1px solid var(--border);
+    border-radius:22px;
+    background:#141d24;
+    color:#8593a1;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.7px;
+    margin-bottom:34px;
+}
+
+.status-dot{
+    width:7px;
+    height:7px;
+    background:#43dbc7;
+    border-radius:50%;
+    box-shadow:0 0 12px #43dbc7;
+}
+
+.hero h1{
+    font-size:clamp(55px,7vw,84px);
+    line-height:1.02;
+    letter-spacing:-3.5px;
+    font-weight:700;
+    max-width:950px;
+    margin-bottom:23px;
+}
+
+.hero-role{
+    font-family:'JetBrains Mono',monospace;
+    font-size:20px;
+    color:var(--teal);
+    margin-bottom:27px;
+}
+
+.hero-role .symbol{
+    color:var(--orange);
+}
+
+.hero-description{
+    max-width:760px;
+    color:#8f9eac;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:38px;
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 28px;
+    border:1px solid var(--border);
+    border-radius:4px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    font-weight:600;
+    transition:.2s ease;
+}
+
+.btn-primary{
+    background:var(--orange);
+    color:#101010;
+    border-color:var(--orange);
+}
+
+.btn-primary:hover{
+    background:#ffad3d;
+}
+
+.btn-secondary{
+    color:#d6dde3;
+}
+
+.btn-secondary:hover{
+    border-color:#566572;
+    background:#131b21;
+}
+
+.hero-meta{
+    margin-top:48px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    color:#667684;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+}
+
+.hero-meta .pin{
+    color:#ff4b89;
+}
+
+.scroll{
+    position:absolute;
+    bottom:26px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#557080;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+.scroll:after{
+    content:"";
+    display:block;
+    width:1px;
+    height:22px;
+    background:#a56a11;
+    margin:10px auto 0;
+}
+
+/* ================= COMMON ================= */
+
+.section{
+    padding-top:105px;
+}
+
+.section-top{
+    margin-bottom:45px;
+}
+
+.section-number{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:#bd7500;
+    margin-bottom:10px;
+}
+
+.section-title{
+    font-size:clamp(38px,4vw,55px);
+    line-height:1.05;
+    letter-spacing:-2px;
+}
+
+.section-subtitle{
+    color:#81909e;
+    margin-top:12px;
+    font-size:14px;
+}
+
+.home-link{
+    position:absolute;
+    right:max(7vw,40px);
+    top:80px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:#73818e;
+}
+
+.home-link:hover{
+    color:white;
+}
+
+/* ================= ABOUT ================= */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1.4fr .8fr;
+    gap:70px;
+}
+
+.about-copy{
+    color:#91a0ae;
+    font-size:17px;
+    line-height:1.75;
+}
+
+.about-copy p+p{
+    margin-top:20px;
+}
+
+.about-facts{
+    border:1px solid var(--border);
+    background:rgba(18,26,32,.78);
+}
+
+.fact{
+    padding:21px 24px;
+    border-bottom:1px solid var(--border);
+}
+
+.fact:last-child{
+    border-bottom:0;
+}
+
+.fact-label{
+    font-family:'JetBrains Mono',monospace;
+    color:#667684;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.fact-value{
+    margin-top:5px;
+    font-size:15px;
+}
+
+/* ================= SKILLS ================= */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.skill-card{
+    padding:27px;
+    border:1px solid var(--border);
+    background:rgba(18,26,32,.9);
+}
+
+.skill-card h3{
+    font-family:'JetBrains Mono',monospace;
+    font-size:14px;
+    color:#e0e7ec;
+    margin-bottom:18px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.tag{
+    padding:7px 10px;
+    border:1px solid #293740;
+    background:#111920;
+    color:#91a0ae;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+}
+
+/* ================= PROJECTS ================= */
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.project-card{
+    overflow:hidden;
+    border:1px solid var(--border);
+    background:#121a20;
+    transition:.25s ease;
+}
+
+.project-card:hover{
+    transform:translateY(-3px);
+    border-color:#40505c;
+}
+
+.project-image{
+    height:268px;
+    position:relative;
+    background:
+        linear-gradient(135deg,#111a20,#1b2730);
+    overflow:hidden;
+}
+
+/*
+  Future project images:
+  Replace the placeholder div with:
+  <img src="images/project-01.jpg" alt="...">
+*/
+.project-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.image-placeholder{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#40515e;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:1px;
+}
+
+.project-status{
+    position:absolute;
+    top:12px;
+    right:12px;
+    padding:6px 9px;
+    border-radius:14px;
+    background:#152127;
+    border:1px solid #314149;
+    color:var(--green);
+    font-family:'JetBrains Mono',monospace;
+    font-size:9px;
+    letter-spacing:.6px;
+    z-index:2;
+}
+
+.project-body{
+    padding:20px 21px 21px;
+}
+
+.project-body h3{
+    font-size:16px;
+    margin-bottom:8px;
+}
+
+.project-body p{
+    color:#8393a1;
+    font-size:13px;
+    line-height:1.6;
+    min-height:62px;
+}
+
+.project-tech{
+    margin-top:15px;
+    color:#667784;
+    font-family:'JetBrains Mono',monospace;
+    font-size:9px;
+    letter-spacing:.5px;
+}
+
+.details-btn{
+    display:block;
+    width:100%;
+    margin-top:17px;
+    padding:13px;
+    background:var(--orange);
+    color:#111;
+    text-align:left;
+    border-radius:3px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    font-weight:600;
+    padding-left:24px;
+}
+
+.details-btn:hover{
+    background:#ffad3d;
+}
+
+/* ================= EXPERIENCE / EDUCATION ================= */
+
+.timeline{
+    border-left:1px solid #33414a;
+    margin-left:8px;
+}
+
+.timeline-item{
+    position:relative;
+    padding:0 0 45px 35px;
+}
+
+.timeline-item:last-child{
+    padding-bottom:0;
+}
+
+.timeline-item:before{
+    content:"";
+    width:9px;
+    height:9px;
+    background:var(--orange);
+    position:absolute;
+    left:-5px;
+    top:6px;
+    border-radius:50%;
+}
+
+.timeline-date{
+    color:#bd7500;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+}
+
+.timeline-item h3{
+    font-size:23px;
+    margin:8px 0 3px;
+}
+
+.timeline-item h4{
+    color:#8998a6;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    font-weight:400;
+}
+
+.timeline-item p{
+    color:#8796a3;
+    max-width:850px;
+    margin-top:15px;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.education-list{
+    display:grid;
+    gap:16px;
+}
+
+.education-item{
+    display:grid;
+    grid-template-columns:75px 1fr;
+    gap:20px;
+    padding:25px;
+    border:1px solid var(--border);
+    background:rgba(18,26,32,.9);
+}
+
+.education-number{
+    color:#bd7500;
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+}
+
+.education-item h3{
+    font-size:19px;
+    margin-bottom:6px;
+}
+
+.education-item p{
+    color:#8998a5;
+    font-size:13px;
+    line-height:1.7;
+}
+
+/* ================= CERTIFICATION ================= */
+
+.cert-card{
+    max-width:950px;
+    padding:32px;
+    border:1px solid var(--border);
+    background:rgba(18,26,32,.9);
+}
+
+.cert-card h3{
+    font-size:22px;
+    margin-bottom:9px;
+}
+
+.cert-card p{
+    color:#8796a3;
+    font-size:14px;
+    margin-top:6px;
+}
+
+.cert-badge{
+    display:inline-block;
+    margin-top:20px;
+    border:1px solid #34434c;
+    padding:8px 12px;
+    color:#9caab6;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+}
+
+.contact-copy{
+    color:#8b9aa7;
+    font-size:17px;
+    line-height:1.7;
+    max-width:580px;
+}
+
+.contact-links{
+    border-top:1px solid var(--border);
+}
+
+.contact-link{
+    display:flex;
+    justify-content:space-between;
+    padding:17px 0;
+    border-bottom:1px solid var(--border);
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:#adb8c1;
+}
+
+.contact-link span{
+    color:#536572;
+}
+
+.contact-link:hover{
+    color:white;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:25px;
+    text-align:center;
+    color:#50606c;
+    background:#0b1014;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:1px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:950px){
+    .nav-links{
+        display:none;
+    }
+
+    .resume-btn{
+        margin-left:auto;
+    }
+
+    .about-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .skills-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:700px){
+    .page{
+        padding:95px 6vw 70px;
+    }
+
+    .home{
+        padding-top:75px;
+    }
+
+    .hero h1{
+        font-size:50px;
+        letter-spacing:-2px;
+    }
+
+    .hero-role{
+        font-size:15px;
+    }
+
+    .hero-description{
+        font-size:15px;
+    }
+
+    .skills-grid,
+    .projects-grid{
+        grid-template-columns:1fr;
+    }
+
+    .project-image{
+        height:230px;
+    }
+
+    .home-link{
+        right:6vw;
+    }
+
+    .nav-inner{
+        width:88%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+    <div class="nav-inner">
+        <a href="#home" class="logo">SSC<span>_</span></a>
+
+        <ul class="nav-links">
+            <li><a href="#about"><span class="num">01</span>about</a></li>
+            <li><a href="#projects"><span class="num">02</span>projects</a></li>
+            <li><a href="#skills"><span class="num">03</span>stack</a></li>
+            <li><a href="#certifications"><span class="num">04</span>certs</a></li>
+            <li><a href="#contact"><span class="num">05</span>contact</a></li>
+        </ul>
+
+        <a class="resume-btn" href="SujalChavanResume.pdf" download>↓ résumé</a>
+    </div>
+</header>
+
+<!-- ================= HOME ================= -->
+<section class="page home" id="home">
+    <div class="page-inner hero">
+
+        <div class="status">
+            <span class="status-dot"></span>
+            SYSTEM ONLINE — OPEN TO ROBOTICS &amp; EMBEDDED ROLES
+        </div>
+
+        <h1>Sujal Sanjay Chavan</h1>
+
+        <div class="hero-role">
+            <span class="symbol">&lt;</span>Embedded Systems &amp; Robotics Engineer<span class="symbol">/&gt;</span>
+        </div>
+
+        <p class="hero-description">
+            EXTC engineering student building unmanned aerial vehicles,
+            autonomous rovers, and the firmware that holds them together.
+            I work where hardware meets code — sensors, motor drivers,
+            flight controllers, and the C++/Python in between.
+        </p>
+
+        <div class="buttons">
+            <a href="#projects" class="btn btn-primary">View projects</a>
+            <a href="#contact" class="btn btn-secondary">Get in touch</a>
+        </div>
+
+        <div class="hero-meta">
+            <span><span class="pin">📍</span> Mumbai, India</span>
+            <span>/</span>
+            <span>B.Tech EXTC — Expected 2027</span>
+            <span>/</span>
+            <span>Mumbai University</span>
+        </div>
+    </div>
+
+    <div class="scroll">scroll</div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="page section" id="about">
+    <a href="#home" class="home-link">↑ home</a>
+    <div class="page-inner">
+
+        <div class="section-top">
+            <div class="section-number">01 / about</div>
+            <h2 class="section-title">About me</h2>
+            <p class="section-subtitle">Hardware-first engineering, from individual modules to complete robotic systems.</p>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-copy">
+                <p>
+                    I am an Electronics &amp; Telecommunication Engineering student
+                    focused on robotics, embedded systems and unmanned platforms.
+                    My work is centred around building physical systems and making
+                    the hardware, firmware, sensors and communication layers work
+                    reliably together.
+                </p>
+                <p>
+                    I have hands-on experience with UAVs, robotic vehicles,
+                    microcontrollers, sensor integration, communication modules,
+                    hardware bring-up, firmware development and structured system
+                    testing.
+                </p>
+                <p>
+                    I am particularly interested in autonomous systems, field
+                    robotics, UAVs, embedded control and hardware–software
+                    co-design.
+                </p>
+            </div>
+
+            <div class="about-facts">
+                <div class="fact">
+                    <div class="fact-label">Education</div>
+                    <div class="fact-value">B.Tech EXTC</div>
+                </div>
+                <div class="fact">
+                    <div class="fact-label">CGPA</div>
+                    <div class="fact-value">8.56 / 10</div>
+                </div>
+                <div class="fact">
+                    <div class="fact-label">Primary focus</div>
+                    <div class="fact-value">Robotics &amp; Embedded Systems</div>
+                </div>
+                <div class="fact">
+                    <div class="fact-label">Location</div>
+                    <div class="fact-value">Mumbai, India</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="page section" id="projects">
+    <a href="#home" class="home-link">↑ home</a>
+    <div class="page-inner">
+
+        <div class="section-top">
+            <div class="section-number">02 / projects</div>
+            <h2 class="section-title">Builds &amp; deployments</h2>
+            <p class="section-subtitle">Each project below is a real hardware or firmware system. Open a project for technical details and project media.</p>
+        </div>
+
+        <div class="projects-grid">
+
+            <!-- PROJECT 01 -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="images/hexa-01.jpg" alt="Autonomous hexacopter" loading="lazy">
+                </div>
+                <div class="project-body">
+                    <h3>Autonomous Unmanned Aerial Vehicle — Hexacopter</h3>
+                    <p>Custom multi-rotor platform built for autonomous flight, including power distribution, flight-controller integration and flight testing.</p>
+                    <div class="project-tech">PIXHAWK · ARDUPILOT · PID · SENSOR INTEGRATION</div>
+                    <a href="project-details/uav-hexacopter.html" class="details-btn">View details</a>
+                </div>
+            </article>
+
+            <!-- PROJECT 02 -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="images/quad-01.jpg" alt="Autonomous quadcopter" loading="lazy">
+                </div>
+                <div class="project-body">
+                    <h3>Autonomous Unmanned Aerial Vehicle — Quadcopter</h3>
+                    <p>Quadcopter platform focused on stable flight, autonomous operation, hardware integration, control tuning and structured testing.</p>
+                    <div class="project-tech">PIXHAWK · ARDUPILOT · UAV · CONTROL SYSTEMS</div>
+                    <a href="project-details/uav-quadcopter.html" class="details-btn">View details</a>
+                </div>
+            </article>
+
+            <!-- PROJECT 03 -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="images/employee-01.jpg" alt="Employee tracking system" loading="lazy">
+                </div>
+                <div class="project-body">
+                    <h3>Employee Tracking System</h3>
+                    <p>Cellular/GNSS tracking unit with camera and display integration for real-time personnel location monitoring and image transmission.</p>
+                    <div class="project-tech">ESP32-S3 · SIM7600G-H · GNSS · OV5640 · UART</div>
+                    <a href="project-details/employee-tracking-system.html" class="details-btn">View details</a>
+                </div>
+            </article>
+
+            <!-- PROJECT 04 -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="images/browser-01.jpg" alt="Browser-controlled robot" loading="lazy">
+                </div>
+                <div class="project-body">
+                    <h3>Browser-Controlled Teleoperated Robot</h3>
+                    <p>Raspberry Pi ground vehicle with a low-latency browser portal for real-time remote teleoperation and live camera feedback.</p>
+                    <div class="project-tech">RASPBERRY PI · PYTHON · WEBSOCKETS · CAMERA</div>
+                    <a href="project-details/browser-controlled-robot.html" class="details-btn">View details</a>
+                </div>
+            </article>
+
+            <!-- PROJECT 05 -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="images/tampering-01.jpg" alt="Multi-sensor tampering detection system" loading="lazy">
+                </div>
+                <div class="project-body">
+                    <h3>Multi-Sensor Tampering Detection System</h3>
+                    <p>ESP32-based security system combining movement, tilt and obstruction sensing with local alerts and monitoring notifications.</p>
+                    <div class="project-tech">ESP32 · MPU6050 · HALL SENSOR · LDR · I2C</div>
+                    <a href="project-details/tampering-detection-system.html" class="details-btn">View details</a>
+                </div>
+            </article>
+
+            <!-- PROJECT 06 -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="images/vehicle-accident-01.jpg" alt="Vehicle accident reporting system" loading="lazy">
+                </div>
+                <div class="project-body">
+                    <h3>Vehicle Accident Reporting System</h3>
+                    <p>Embedded accident detection system using motion sensing and cellular communication to detect collisions and transmit emergency alerts.</p>
+                    <div class="project-tech">ARDUINO · GSM · MPU6050 · EMBEDDED SYSTEMS</div>
+                    <a href="project-details/vehicle-accident-reporting.html" class="details-btn">View details</a>
+                </div>
+            </article>
+
+            <!-- PROJECT 07 -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="images/antenna-01.png" alt="Dual circular microstrip antenna" loading="lazy">
+                </div>
+                <div class="project-body">
+                    <h3>Dual Circular Microstrip Antenna</h3>
+                    <p>Designed and analysed circular microstrip antenna structures, studying return loss, VSWR, impedance matching and radiation characteristics.</p>
+                    <div class="project-tech">CST STUDIO · RF · MICROSTRIP · ANTENNA DESIGN</div>
+                    <a href="project-details/dual-circular-microstrip-antenna.html" class="details-btn">View details</a>
+                </div>
+            </article>
+
+            <!-- PROJECT 08 -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="images/stm32-01.png" alt="STM32 experiments" loading="lazy">
+                </div>
+                <div class="project-body">
+                    <h3>STM32 Experiments</h3>
+                    <p>Embedded experiments using STM32 microcontrollers, peripherals, GPIO and hardware interfacing concepts.</p>
+                    <div class="project-tech">STM32 · EMBEDDED C · GPIO · PERIPHERALS</div>
+                    <a href="project-details/stm32-experiments.html" class="details-btn">View details</a>
+                </div>
+            </article>
+
+            <!-- PROJECT 09 -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="images/8051-01-schematic.png" alt="8051 based DC motor controller schematic" loading="lazy">
+                </div>
+                <div class="project-body">
+                    <h3>8051 Based DC Motor Controller</h3>
+                    <p>Microcontroller-based DC motor control system focused on motor interfacing, control logic and embedded hardware operation.</p>
+                    <div class="project-tech">8051 · EMBEDDED C · DC MOTOR · CONTROL</div>
+                    <a href="project-details/8051-dc-motor-controller.html" class="details-btn">View details</a>
+                </div>
+            </article>
+
+            <!-- PROJECT 10 -->
+            <article class="project-card">
+                <div class="project-image">
+                    <div class="image-placeholder">PROJECT IN DEVELOPMENT — IMAGE PENDING</div>
+                </div>
+                <div class="project-body">
+                    <h3>LoRa Enabled Environment Monitoring System</h3>
+                    <p>Ongoing environment-monitoring system being developed to collect field measurements and transmit sensor data over a long-range LoRa link.</p>
+                    <div class="project-tech">LORA · RASPBERRY PI · SENSORS · IOT</div>
+                    <a href="project-details/lora-environment-monitoring.html" class="details-btn">View details</a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section class="page section" id="skills">
+    <a href="#home" class="home-link">↑ home</a>
+    <div class="page-inner">
+
+        <div class="section-top">
+            <div class="section-number">03 / stack</div>
+            <h2 class="section-title">Technical stack</h2>
+            <p class="section-subtitle">The hardware, software and interfaces I use to build complete systems.</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Robotics &amp; UAV</h3>
+                <div class="tags">
+                    <span class="tag">UAV Assembly</span>
+                    <span class="tag">Quadcopter</span>
+                    <span class="tag">Hexacopter</span>
+                    <span class="tag">Rover Assembly</span>
+                    <span class="tag">PID Tuning</span>
+                    <span class="tag">Control Systems</span>
+                    <span class="tag">Flight Testing</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>Embedded Platforms</h3>
+                <div class="tags">
+                    <span class="tag">ESP32</span>
+                    <span class="tag">ESP32-S3</span>
+                    <span class="tag">STM32</span>
+                    <span class="tag">Arduino</span>
+                    <span class="tag">8051</span>
+                    <span class="tag">Raspberry Pi</span>
+                    <span class="tag">Jetson Nano</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>Hardware &amp; Interfaces</h3>
+                <div class="tags">
+                    <span class="tag">Sensor Integration</span>
+                    <span class="tag">Hardware Bring-up</span>
+                    <span class="tag">Power Distribution</span>
+                    <span class="tag">GPIO</span>
+                    <span class="tag">UART</span>
+                    <span class="tag">I2C</span>
+                    <span class="tag">SPI</span>
+                    <span class="tag">PWM</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>Programming</h3>
+                <div class="tags">
+                    <span class="tag">C</span>
+                    <span class="tag">C++</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Java</span>
+                    <span class="tag">Embedded C</span>
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>Communication &amp; IoT</h3>
+                <div class="tags">
+                    <span class="tag">GNSS / GPS</span>
+                    <span class="tag">GSM</span>
+                    <span class="tag">Wi-Fi</span>
+                    <span class="tag">LoRa</span>
+                    <span class="tag">MQTT</span>
+                    <span class="tag">WebSockets</span>
+                    <span class="tag">MAVLink</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>Tools</h3>
+                <div class="tags">
+                    <span class="tag">ArduPilot</span>
+                    <span class="tag">Pixhawk</span>
+                    <span class="tag">QGroundControl</span>
+                    <span class="tag">MAVProxy</span>
+                    <span class="tag">Flask</span>
+                    <span class="tag">Git &amp; GitHub</span>
+                    <span class="tag">CST Studio</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= EDUCATION ================= -->
+<section class="page section" id="education">
+    <a href="#home" class="home-link">↑ home</a>
+    <div class="page-inner">
+
+        <div class="section-top">
+            <div class="section-number">05 / education</div>
+            <h2 class="section-title">Education</h2>
+        </div>
+
+        <div class="education-list">
+            <div class="education-item">
+                <div class="education-number">01</div>
+                <div>
+                    <h3>B.Tech, Electronics &amp; Telecommunication Engineering</h3>
+                    <p>Pillai College of Engineering, New Panvel · Mumbai University</p>
+                    <p>CGPA: <strong>8.56 / 10</strong> (Semesters I–VI)</p>
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-number">02</div>
+                <div>
+                    <h3>HSC</h3>
+                    <p>Satish Pradhan Dnyanasadhana College, Thane</p>
+                    <p>Percentage: <strong>70.83%</strong></p>
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-number">03</div>
+                <div>
+                    <h3>SSC</h3>
+                    <p>Little Flower High School, Thane</p>
+                    <p>Percentage: <strong>84.60%</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================= EXPERIENCE ================= -->
+<section class="page section" id="experience">
+    <a href="#home" class="home-link">↑ home</a>
+    <div class="page-inner">
+
+        <div class="section-top">
+            <div class="section-number">04 / experience</div>
+            <h2 class="section-title">Experience</h2>
+            <p class="section-subtitle">Hands-on industry experience in robotics and embedded hardware.</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">01 Jun 2026 — 20 Jul 2026</div>
+                <h3>PNT Robotics &amp; Automation Solutions</h3>
+                <h4>Robotics Intern · On-site</h4>
+                <p>
+                    Worked on the Employee Tracking System, contributing to
+                    hardware integration and embedded firmware development.
+                    Worked with GSM/GPS communication, display and camera
+                    modules, real-time GPS data, image transmission, firmware
+                    debugging, hardware bring-up and end-to-end system testing.
+                </p>
+                <img src="../images/PNT_Robotics_Internship_Certificate.png"
+                         alt="PNT Robotics Internship Certificate"
+                         style="width:50%;display:block;border:1px solid #26313a;background:#fff;">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================= CERTIFICATIONS ================= -->
+<section class="page section" id="certifications">
+    <a href="#home" class="home-link">↑ home</a>
+    <div class="page-inner">
+
+        <div class="section-top">
+            <div class="section-number">06 / certifications</div>
+            <h2 class="section-title">Certifications</h2>
+        </div>
+
+        <div class="cert-card">
+            <h3>Introduction to Industry 4.0 and Industrial Internet of Things</h3>
+            <p>IIT Kharagpur · NPTEL</p>
+            <p>Elite Certificate · Consolidated Score: <strong>77%</strong></p>
+            <p>12-week curriculum covering industrial networking, cyber-physical architectures and smart automation systems.</p>
+            <span class="cert-badge">NPTEL25CS146S1063702128</span>
+            <img src="../images/nptelcertificate.png"
+                         alt="NPTEL certification"
+                         style="width:100%;display:block;border:1px solid #26313a;background:#fff;">
+        </div>
+    </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="page section" id="contact">
+    <a href="#home" class="home-link">↑ home</a>
+    <div class="page-inner">
+
+        <div class="section-top">
+            <div class="section-number">07 / contact</div>
+            <h2 class="section-title">Get in touch</h2>
+        </div>
+
+        <div class="contact-grid">
+            <p class="contact-copy">
+                Interested in robotics, UAVs, embedded systems, autonomous
+                platforms or hardware development? Let's connect.
+            </p>
+
+            <div class="contact-links">
+                <a class="contact-link" href="mailto:sujalc286@gmail.com">
+                    sujalc286@gmail.com <span>↗</span>
+                </a>
+                <a class="contact-link" href="tel:+917208656815">
+                    +91 7208656815 <span>↗</span>
+                </a>
+                <a class="contact-link" href="https://www.linkedin.com/in/sujal-chavan" target="_blank">
+                    LinkedIn <span>↗</span>
+                </a>
+                <a class="contact-link" href="https://github.com/sujal-286" target="_blank">
+                    GitHub <span>↗</span>
+                </a>
+                <a class="contact-link" href="SujalChavanResume.pdf" target="_blank">
+                    Résumé <span>PDF ↗</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    SUJAL CHAVAN · ROBOTICS &amp; EMBEDDED SYSTEMS
+</footer>
+
+</body>
+</html>

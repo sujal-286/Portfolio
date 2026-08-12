@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autonomous Unmanned Aerial Vehicle (UAV) | Sujal Chavan</title>
+<style>
+:root{--bg:#0e1419;--surface:#121a20;--border:#26313a;--text:#edf2f6;--muted:#8c9baa;--orange:#ff9f1c;--teal:#37e0d0;--dim:#60717e}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{min-height:100vh;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;background-image:linear-gradient(rgba(24,35,42,.62) 1px,transparent 1px),linear-gradient(90deg,rgba(24,35,42,.62) 1px,transparent 1px);background-size:49px 49px}
+.top{height:58px;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 7vw;background:rgba(14,20,25,.97);justify-content:space-between;position:sticky;top:0;z-index:10}
+.logo{font-family:'JetBrains Mono','Courier New',monospace;font-weight:700;font-size:18px}.logo span{color:var(--orange)}
+.back{color:#9aa8b4;text-decoration:none;font:12px 'JetBrains Mono','Courier New',monospace;border:1px solid var(--border);padding:9px 14px;border-radius:3px}
+.back:hover{color:white;border-color:#52616d}
+main{width:min(1120px,86%);margin:0 auto;padding:88px 0 110px}
+.number{font:12px 'JetBrains Mono','Courier New',monospace;color:#bd7500;margin-bottom:12px}
+h1{font-size:clamp(40px,6vw,70px);line-height:1.03;letter-spacing:-2.5px;max-width:1000px}
+.intro{margin-top:22px;color:var(--muted);font-size:18px;line-height:1.75;max-width:930px}
+.section{margin-top:52px}.section h2{font-size:25px;margin-bottom:18px}
+.section p,.section li{color:#92a0ad;font-size:14px;line-height:1.9}
+.section p+p{margin-top:15px}.section ul{padding-left:22px}.section li+li{margin-top:5px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.box{background:rgba(18,26,32,.92);border:1px solid var(--border);padding:28px}
+.box h3{font:12px 'JetBrains Mono','Courier New',monospace;margin-bottom:12px;color:#dbe3e9;letter-spacing:.4px}
+.tech{color:var(--teal);font:12px 'JetBrains Mono','Courier New',monospace;line-height:1.9}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.gallery figure{margin:0;border:1px solid var(--border);background:#121a20;overflow:hidden}
+.gallery img{display:block;width:100%;height:390px;object-fit:cover}
+.gallery figcaption{padding:12px 14px;color:#71818e;font:10px 'JetBrains Mono','Courier New',monospace;line-height:1.5}
+.note{margin-top:12px;color:#596975;font-size:11px;line-height:1.6}
+.empty-gallery{height:230px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:#4b5b66;font:11px 'JetBrains Mono','Courier New',monospace;text-align:center;padding:20px}
+@media(max-width:700px){.info-grid,.gallery{grid-template-columns:1fr}.gallery img{height:310px}main{width:88%;padding-top:65px}h1{font-size:43px}}
+</style>
+</head>
+<body>
+<header class="top">
+<a class="logo" href="../index.html">SSC<span>_</span></a>
+<a class="back" href="../index.html#projects">← back to projects</a>
+</header>
+<main>
+<div class="number">01 / project</div>
+<h1>Autonomous Unmanned Aerial Vehicle (UAV)</h1>
+<p class="intro">A hands-on multi-rotor UAV development project covering two different airframe configurations — a hexacopter and a quadcopter — while treating both as part of the same UAV engineering work.</p>
+
+<section class="section">
+<h2>Project overview</h2>
+<p>The project focused on building and validating practical unmanned aerial platforms rather than treating the aircraft as a single off-the-shelf system. The work involved mechanical assembly, propulsion integration, power distribution, flight-controller installation, configuration, control tuning and flight testing.</p><p>The two aircraft configurations use different frame geometries and motor counts, but they belong to the same overall UAV project. The hexacopter configuration provides six motors, while the quadcopter configuration uses four motors. The different frames are therefore documented here as variants of one project instead of separate portfolio projects.</p><p>The development process was hardware-first: the aircraft had to be electrically and mechanically sound before software configuration and flight testing could be meaningful.</p>
+</section>
+
+<section class="section">
+<h2>System architecture &amp; technical focus</h2>
+<div class="info-grid">
+<div class="box"><h3>AIRFRAME & PROPULSION</h3><p>Assembled multi-rotor frames, brushless motors, propellers and electronic speed controllers. Mechanical alignment, motor wiring and propulsion connections were checked before powered testing.</p></div>
+<div class="box"><h3>FLIGHT CONTROLLER</h3><p>Integrated a Pixhawk flight controller as the central flight-control unit and worked with ArduPilot-based configuration and ground-control tooling.</p></div>
+<div class="box"><h3>POWER & ELECTRICAL INTEGRATION</h3><p>Worked with battery power, power distribution, ESC connections and the wiring required to deliver reliable power to the propulsion and flight-control electronics.</p></div>
+<div class="box"><h3>CONTROL & TESTING</h3><p>Performed staged testing: inspection, power-up checks, motor verification, controller configuration, control-response checks and practical flight testing.</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2>Work performed</h2>
+<ul><li>Built and mechanically inspected the UAV frames before electrical integration.</li>
+<li>Integrated brushless motors, ESCs, propellers and the aircraft power-distribution system.</li>
+<li>Installed and connected the Pixhawk flight controller and supporting electronics.</li>
+<li>Configured the flight-control system and checked motor/propulsion response before flight.</li>
+<li>Performed pre-flight electrical and hardware checks to catch wiring and integration problems.</li>
+<li>Carried out practical flight tests and evaluated stability and control response.</li>
+<li>Worked with both six-motor and four-motor frame configurations while maintaining the same overall UAV development objective.</li>
+<li>Used the project to build practical experience across airframe construction, embedded flight hardware, control systems and field testing.</li></ul>
+</section>
+
+<section class="section">
+<h2>Technology stack</h2>
+<div class="box"><div class="tech">PIXHAWK · ARDUPILOT · BRUSHLESS MOTORS · ESCs · UAV · PID · POWER DISTRIBUTION · FLIGHT TESTING</div></div>
+</section>
+
+<section class="section">
+<h2>Project media</h2>
+<div class="gallery"><figure><img src="../images/hexa-01.jpg" alt="Hexacopter platform during practical testing." loading="lazy"><figcaption>Hexacopter platform during practical testing.</figcaption></figure>
+<figure><img src="../images/quad-01.jpg" alt="Quadcopter frame and flight-control hardware." loading="lazy"><figcaption>Quadcopter frame and flight-control hardware.</figcaption></figure>
+<figure><img src="../images/quad-02.jpg" alt="Quadcopter during outdoor flight testing." loading="lazy"><figcaption>Quadcopter during outdoor flight testing.</figcaption></figure></div>
+<div class='note'>The hexacopter and quadcopter photographs represent two frame configurations within the same UAV project.</div>
+</section>
+</main>
+</body>
+</html>
